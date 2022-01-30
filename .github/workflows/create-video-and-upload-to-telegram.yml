@@ -4,6 +4,9 @@
 name: Create video and upload to telegram
 
 on:
+  schedule:
+    - cron: "0 */12 * * *"
+  
   workflow_dispatch:
 
 jobs:
