@@ -1,5 +1,6 @@
 import { Telegraf } from 'telegraf'
 import { createReadStream } from 'fs'
+import 'dotenv/config'
 
 var chatId = "-1001537133913"
 let token = process.env.TELEGRAM_TOKEN
