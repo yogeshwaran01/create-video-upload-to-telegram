@@ -18,7 +18,7 @@ def download_required_images_and_audio(query):
         save_images([image], "pictures")
         download_mp3(Genre.melody, random.randint(0,  99))
     else:
-        image = peakpx(query)[random.randint(0, 38)]
+        image = peakpx(query)[random.randint(0, 30)]
         save_images([image], "pictures")
         download_mp3(Genre.mass, random.randint(0, 30))
 
@@ -26,14 +26,34 @@ def download_required_images_and_audio(query):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--video",
-        type=str,
+        "--mass",
         required=False,
-        default="a"
+        default=False,
+        action=argparse.BooleanOptionalAction
+    )
+    parser.add_argument(
+        '--mel',
+        required=False,
+        default=False,
+        action=argparse.BooleanOptionalAction
+    )
+    parser.add_argument(
+        "--mot",
+        required=False,
+        default=False,
+        action=argparse.BooleanOptionalAction
     )
     args = parser.parse_args()
     print("Downloading required images and audio files ...")
-    download_required_images_and_audio(args.video)
+    if args.mass:
+        import random
+        download_required_images_and_audio(random.choice(tags))
+    elif args.mel:
+        download_required_images_and_audio("a")
+    elif args.mot:
+        download_required_images_and_audio("m")
+    else:
+        download_required_images_and_audio("a")
     print("Converting images into videos ...")
     concat_images_in_pictures_dir_to_video()
     print("Adding audio to the video ...")
