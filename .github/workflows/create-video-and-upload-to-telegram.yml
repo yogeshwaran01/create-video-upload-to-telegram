@@ -4,10 +4,7 @@
 name: Create video and upload to telegram
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -31,6 +28,8 @@ jobs:
         cache: 'npm'
     - name: Install Node dependencies
       run: npm install
+    - name: Install ffmpeg
+      run: sudo apt-get install -y ffmpeg
     - name: Run bot
       env:
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
