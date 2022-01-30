@@ -4,7 +4,7 @@ echo 'Auto Video making and upload it to Telegram'
 
 echo 'Creating video ...'
 
-python create.py --video simbu
+python create.py --video vijay
 
 echo 'Video Created :)'
 
