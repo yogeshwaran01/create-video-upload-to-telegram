@@ -9,7 +9,7 @@ moviepy==1.0.3
 numpy==1.22.1
 Pillow==9.0.0
 proglog==0.1.9
-pytube==11.0.2
+pytube @ git+https://github.com/ifahadone/pytube.git@620ba829ac87a186db86d936c59ab430040859b4
 requests==2.27.1
 soupsieve==2.3.1
 tqdm==4.62.3
